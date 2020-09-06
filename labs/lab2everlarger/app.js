@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(400, 300);
+  createCanvas(1500, 860);
 }
 
 let size = 1;
@@ -8,7 +8,7 @@ function draw() {
   background(0);
 
   fill(255);
-  circle(200, 150, size);
+  circle(750, 430, size);
 
   size = size + 1;
 

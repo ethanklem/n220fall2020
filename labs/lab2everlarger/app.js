@@ -5,9 +5,9 @@ function setup() {
 let size = 1;
 
 function draw() {
-  background(255, 255, 255);
+  background(221, 153, 255);
 
-  fill(0, 0, 0);
+  fill(255);
   circle(750, 430, size);
 
   size = size + 1;

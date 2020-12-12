@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--This is the link that goes to my style sheet-->
+    <link rel="stylesheet" href="styles.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <!--This is the title div for that says Tic Tac Toe-->
+    <div class="titleDiv">
+        <p class="title">Tic Tac Toe</p>
+        <br>
+        <p class="title2">X Move First</p>
+        <br>
+        <p class="title3">Click a Circle to Begin</p>
+    </div>
+    <!--This is the board for the game and within is all the cells.-->
+    <div class="board" id="board">
+        <div class="cell" data-info></div>
+        <div class="cell" data-info></div>
+        <div class="cell" data-info></div>
+        <div class="cell" data-info></div>
+        <div class="cell" data-info></div>
+        <div class="cell" data-info></div>
+        <div class="cell" data-info></div>
+        <div class="cell" data-info></div>
+        <div class="cell" data-info></div>
+    </div>
+    <!--This is the winning message that pops up when either player X or O wins., 
+        or if the game results in a draw-->
+    <div class="winning-message" id="winningMessage">
+        <div data-winning-message-text></div>
+        <button id="replayButton">Replay</button>
+    </div>
+    <!--This is the script tag that links to my javascript file-->
+    <script src="app.js"></script>
+</body> 
+</html>

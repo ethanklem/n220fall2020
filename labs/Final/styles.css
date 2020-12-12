@@ -1,0 +1,174 @@
+/* This styles everytihng on the page making background black
+and making the margin 0 which centers */
+* {
+  background-color: #000;
+  margin: 0;
+}
+
+/* This sets and calculates the cell size for when a X or O is placed
+making this larger will cause the X or O to go out of the cell */
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+/* this is just the div for the title that says "tic tac toe" */
+.titleDiv {
+  color: #fefced;
+  text-align: center;
+}
+
+/* this is just the div for the title that says "x move first" */
+.title {
+  text-decoration: underline;
+  font-size: 50px;
+}
+
+/* this is just the div for the title that says "click a circle to begin" */
+.title2 {
+  font-size: 25px;
+}
+
+/* This is styling the board making it center and displaying it in the right position 
+most important is the grid-template-columns that make it in collumns of 3*/
+.board {
+  width: 100vw;
+  height: 50vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+  position: relative;
+}
+
+/*This is for styling the individual cells and the cursor is set to pointer 
+so when the user hovers over a cell the cursor becomes a pointer to let user
+know its to be clicked on  */
+.cell {
+  width: 100px;
+  height: 100px;
+  border: 5px solid #fefced;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+/* This is set to change the cursor to not be allowed to be clicked when a space is already
+been used and its crucial for gameplay */
+.cell.x,
+.cell.O {
+  cursor: not-allowed;
+}
+
+/* This is for styling the bright pink color when the x is placed */
+.cell.x::before,
+.cell.x::after {
+  background-color: #fc0fad;
+}
+
+/*This is for the bright purple when a o is placed*/
+.cell.O::before {
+  background-color: #af0ceb;
+}
+
+/*This is for hovering over cell before placing a X, its a less bright pink*/
+.board.x .cell:not(.x):not(.O):hover::before,
+.board.x .cell:not(.x):not(.O):hover::after {
+  background-color: #ed9fd3;
+}
+
+/*This is for hovering over a cell before placing an O, its a less bright purple*/
+.board.O .cell:not(.x):not(.O):hover::before {
+  background-color: #cf9ae3;
+}
+
+/*This is for the hover of the X and the position of X*/
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.O):hover::before,
+.board.x .cell:not(.x):not(.O):hover::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+}
+
+/*This is for rotating the lines to make an X*/
+.cell.x::before,
+.board.x .cell:not(.x):not(.O):hover::before {
+  transform: rotate(45deg);
+}
+
+/*This is for rotating the opposite line to form the X*/
+.cell.x::after,
+.board.x .cell:not(.x):not(.O):hover::after {
+  transform: rotate(-45deg);
+}
+
+/*This is for the hover of the O and the position of O*/
+.cell.O::before,
+.cell.O::after,
+.board.O .cell:not(.x):not(.O):hover::before,
+.board.O .cell:not(.x):not(.O):hover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+/*This is for the hover and makes the o visible, this is crucial*/
+.cell.O::before,
+.board.O .cell:not(.x):not(.O):hover::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+}
+
+/*This is used to make the inside of the circle not show up
+so it looks like an O and not a circle*/
+.cell.O::after,
+.board.O .cell:not(.x):not(.O):hover::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: #000;
+}
+
+/*This is for the position and colors of the winning message
+when it pops up*/
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  color: #fefced;
+  font-size: 50px;
+  flex-direction: column;
+}
+
+/*This is the color, pointer, and border of the replay button*/
+.winning-message button {
+  font-size: 40px;
+  background-color: #a767ff;
+  border: 1px solid #fefced;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  border-radius: 50px;
+  color: #fefced;
+}
+
+/*This is the color of the replay button when hovered over*/
+.winning-message button:hover {
+  background-color: #c895e6;
+}
+
+/*This is used when the winning message is called to "show up"*/
+.winning-message.show {
+  display: flex;
+}
